@@ -1,11 +1,138 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JAPAN ATHLETE CONNECT | ARROWZ</title><link rel="stylesheet" href="style.css"></head><body>
-<header><b>ARROWZ</b><nav><a href="#concept">CONCEPT</a><a href="#athletes">ATHLETES</a><a href="#business">BUSINESS</a></nav><button onclick="openM('login')">LOGIN</button></header>
-<section class="hero"><div><small>JAPAN ATHLETE CONNECT</small><h1>才能を、<br><em>データで発見する。</em></h1><p>競技実績だけでは見えない身体能力を可視化。<br>アスリート、スカウト、企業をスポーツ科学でつなぐ。</p><a href="#athletes">選手を探す</a></div></section>
-<section id="concept"><small>CONCEPT</small><h2>実績だけでは、見つからない才能がある。</h2><div class="cards"><article><i>01</i><h3>ATHLETE</h3><p>測定を受け、身体能力と成長を可視化。競技実績以外の強みでもアピール。</p></article><article><i>02</i><h3>SCOUT</h3><p>競技・年代・地域・身体能力から検索。遠方や無名の選手を効率的に発掘。</p></article><article><i>03</i><h3>BUSINESS</h3><p>スポンサー・採用候補の発見と、統計化されたアスリート市場データを活用。</p></article></div></section>
-<section class="physical"><small>ARROWZ PHYSICAL DATA</small><h2>身体能力を、共通言語に。</h2><div class="metrics"><b>視機能<span>VISION</span></b><b>筋力<span>STRENGTH</span></b><b>持久力<span>ENDURANCE</span></b><b>瞬発力<span>POWER</span></b><b>跳躍力<span>JUMP</span></b></div></section>
-<section id="athletes"><small>ATHLETE DATABASE</small><h2>データから、選手を探す。</h2><div class="filters"><select id="sport"><option value="">全競技</option><option>サッカー</option><option>野球</option><option>バスケットボール</option><option>陸上</option></select><select id="age"><option value="">全年代</option><option>U18</option><option>U15</option></select><select id="region"><option value="">全地域</option><option>関東</option><option>関西</option><option>東海</option></select><select id="score"><option value="0">スコア指定なし</option><option value="80">80+</option><option value="90">90+</option></select><button onclick="filterA()">SEARCH</button></div><p class="note">※掲載データはプロトタイプ用ダミーデータです。</p><div id="grid" class="grid"></div></section>
-<section id="business"><small>FOR SCOUT / BUSINESS</small><h2>発掘から、採用・スポンサーまで。</h2><div class="cards"><article><h3>SCOUT SEARCH</h3><p>全国の選手を条件検索し、身体能力から候補を発見。</p></article><article><h3>SPONSOR / RECRUIT</h3><p>企業がスポンサー・採用候補となるアスリートを発見。</p></article><article><h3>MARKET DATA</h3><p>競技・年代・地域別の身体能力データを商品企画・研究へ。</p></article></div></section>
-<section class="revenue"><small>REVENUE MODEL</small><h2>3つの収益エンジン。</h2><div class="cards"><article><i>ATHLETE / TEAM</i><h3>測定料</h3><p>検査・測定と継続的なデータ蓄積。</p></article><article><i>SCOUT</i><h3>閲覧ライセンス</h3><p>大学・高校・プロ・実業団等の検索・閲覧課金。</p></article><article><i>BUSINESS</i><h3>企業閲覧ライセンス</h3><p>市場データ・スポンサー・採用候補の閲覧課金。</p></article></div></section>
-<footer><b>ARROWZ</b><span>JAPAN ATHLETE CONNECT — PROTOTYPE</span></footer>
-<div id="modal" class="modal" onclick="if(event.target===this)closeM()"><div class="dialog"><button class="x" onclick="closeM()">×</button><div id="detail"></div></div></div>
-<script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="JAPAN ATHLETE CONNECT - 身体能力データを起点としたスポーツ人材プラットフォーム">
+<title>JAPAN ATHLETE CONNECT | ARROWZ</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="#top"><span class="logo-mark">A</span><span>JAPAN ATHLETE<br><b>CONNECT</b></span></a>
+  <nav>
+    <a href="#concept">CONCEPT</a>
+    <a href="#athletes">ATHLETES</a>
+    <a href="#business">BUSINESS</a>
+    <a href="#plans">PLANS</a>
+  </nav>
+  <button class="header-btn" onclick="openLogin()">LOGIN</button>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">SPORTS SCIENCE × ATHLETE DATA</p>
+    <h1>才能を、<br><span>データで発見する。</span></h1>
+    <p class="lead">競技実績だけでは見えない身体能力を可視化。<br>アスリート、スカウト、企業をスポーツ科学でつなぐ。</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#athletes">選手を探す</a>
+      <a class="btn secondary" href="#concept">サービスを見る</a>
+    </div>
+    <div class="hero-kpis">
+      <div><strong>5</strong><span>PHYSICAL DATA</span></div>
+      <div><strong>3</strong><span>USER TYPES</span></div>
+      <div><strong>1</strong><span>DATA PLATFORM</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <img src="assets/platform-visual.png" alt="JAPAN ATHLETE CONNECT platform visual">
+    <div class="visual-badge"><span>ARROWZ SCORE</span><strong>92</strong><small>TOP 8%</small></div>
+  </div>
+</section>
+
+<section id="concept" class="section">
+  <div class="section-head split">
+    <div>
+      <p class="eyebrow dark">CONCEPT</p>
+      <h2>実績だけでは、<br>見つからない才能がある。</h2>
+    </div>
+    <p>ARROWZの測定データを蓄積し、選手の価値を身体能力・成長・映像から多面的に可視化。選手とスカウト・企業の新しい接点をつくります。</p>
+  </div>
+  <div class="cards">
+    <article><span>01</span><h3>ATHLETE</h3><p>測定を受け、自分の身体能力と成長を可視化。競技実績以外の強みでもアピール。</p></article>
+    <article><span>02</span><h3>SCOUT</h3><p>競技・年代・地域・身体能力から検索。遠方や無名の選手を効率的に発掘。</p></article>
+    <article><span>03</span><h3>BUSINESS</h3><p>スポンサー候補・採用候補の発見と、統計化されたアスリート市場データを活用。</p></article>
+  </div>
+</section>
+
+<section class="platform-showcase">
+  <div class="section-head light">
+    <p class="eyebrow">PLATFORM IMAGE</p>
+    <h2>選手検索から、身体能力比較まで。</h2>
+    <p>Web上で選手を検索し、プロフィール・身体能力・成長履歴・映像を一元的に確認できるプラットフォームを想定しています。</p>
+  </div>
+  <img src="assets/platform-visual.png" alt="JAPAN ATHLETE CONNECT UI mockup">
+</section>
+
+<section class="physical">
+  <div class="section-head light">
+    <p class="eyebrow">ARROWZ PHYSICAL DATA</p>
+    <h2>身体能力を、共通言語に。</h2>
+  </div>
+  <div class="metrics">
+    <div><i>01</i><b>視機能</b><span>VISION</span></div>
+    <div><i>02</i><b>筋力</b><span>STRENGTH</span></div>
+    <div><i>03</i><b>持久力</b><span>ENDURANCE</span></div>
+    <div><i>04</i><b>瞬発力</b><span>POWER</span></div>
+    <div><i>05</i><b>跳躍力</b><span>JUMP</span></div>
+  </div>
+</section>
+
+<section id="athletes" class="section athlete-section">
+  <div class="section-head split">
+    <div><p class="eyebrow dark">ATHLETE DATABASE</p><h2>データから、選手を探す。</h2></div>
+    <p>※選手名・数値はプロトタイプ用ダミーデータです。</p>
+  </div>
+
+  <div class="filters">
+    <select id="sport"><option value="">すべての競技</option><option>サッカー</option><option>野球</option><option>バスケットボール</option><option>陸上</option></select>
+    <select id="age"><option value="">すべての年代</option><option>U18</option><option>U15</option></select>
+    <select id="region"><option value="">すべての地域</option><option>関東</option><option>関西</option><option>東海</option></select>
+    <select id="score"><option value="0">スコア指定なし</option><option value="80">SCORE 80+</option><option value="90">SCORE 90+</option></select>
+    <button onclick="filterA()">SEARCH</button>
+  </div>
+  <div id="resultCount" class="result-count"></div>
+  <div id="grid" class="athlete-grid"></div>
+</section>
+
+<section id="business" class="section">
+  <div class="section-head">
+    <p class="eyebrow dark">FOR SCOUT / BUSINESS</p>
+    <h2>発掘から、採用・スポンサーまで。</h2>
+  </div>
+  <div class="cards business-cards">
+    <article><div class="icon">⌕</div><h3>SCOUT SEARCH</h3><p>全国の選手を条件検索し、身体能力・成長データ・映像から候補を発見。</p><a href="#athletes">選手検索を体験 →</a></article>
+    <article><div class="icon">◎</div><h3>SPONSOR / RECRUIT</h3><p>企業がアスリートを発見し、スポンサー・採用候補としてアプローチ。</p><button onclick="openContact()">法人利用を相談 →</button></article>
+    <article><div class="icon">▦</div><h3>MARKET DATA</h3><p>競技・年代・地域別の身体能力データを商品企画・研究・マーケティングへ。</p><button onclick="openContact()">データ利用を相談 →</button></article>
+  </div>
+</section>
+
+<section id="plans" class="section plans">
+  <div class="section-head center">
+    <p class="eyebrow dark">REVENUE MODEL</p>
+    <h2>3つの収益エンジン。</h2>
+  </div>
+  <div class="cards">
+    <article><span>ATHLETE / TEAM</span><h3>測定料</h3><p>ARROWZ LAB・提携拠点での測定。継続測定により成長履歴を蓄積。</p></article>
+    <article class="featured"><span>SCOUT</span><h3>閲覧ライセンス</h3><p>大学・高校・プロ・実業団等が検索・比較・閲覧機能を利用。</p></article>
+    <article><span>BUSINESS</span><h3>企業閲覧ライセンス</h3><p>市場データ・スポンサー候補・採用候補を企業が閲覧。</p></article>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="logo footer-logo"><span class="logo-mark">A</span><span>JAPAN ATHLETE<br><b>CONNECT</b></span></div>
+  <p>Prototype for GitHub Pages</p>
+</footer>
+
+<div id="modal" class="modal" onclick="if(event.target===this)closeM()">
+  <div class="dialog">
+    <button class="close" onclick="closeM()">×</button>
+    <div id="detail"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
