@@ -1,138 +1,185 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="JAPAN ATHLETE CONNECT - 身体能力データを起点としたスポーツ人材プラットフォーム">
-<title>JAPAN ATHLETE CONNECT | ARROWZ</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JAPAN DRAFT COMBINE - 小学生から始まる、フィジカルデータを軸にしたスポーツ人材プラットフォーム。">
+  <title>JAPAN DRAFT COMBINE | powered by ARROWZ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="site-header">
-  <a class="logo" href="#top"><span class="logo-mark">A</span><span>JAPAN ATHLETE<br><b>CONNECT</b></span></a>
-  <nav>
-    <a href="#concept">CONCEPT</a>
-    <a href="#athletes">ATHLETES</a>
-    <a href="#business">BUSINESS</a>
-    <a href="#plans">PLANS</a>
+<header class="header">
+  <a href="#top" class="brand" aria-label="JAPAN DRAFT COMBINE">
+    <span class="brand-mark">JDC</span>
+    <span class="brand-copy"><b>JAPAN DRAFT COMBINE</b><small>POWERED BY ARROWZ</small></span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#athletes">ATHLETES</a><a href="#combine">COMBINE</a><a href="#growth">GROWTH</a><a href="#scout">FOR SCOUT</a>
   </nav>
-  <button class="header-btn" onclick="openLogin()">LOGIN</button>
+  <div class="header-actions">
+    <button class="text-btn" data-toast="ログイン機能はPhase 2で接続します">LOGIN</button>
+    <a href="#entry" class="btn btn-small">ENTRY</a>
+  </div>
+  <button class="menu" id="menu" aria-label="メニュー">☰</button>
 </header>
 
 <main id="top">
 <section class="hero">
-  <div class="hero-copy">
-    <p class="eyebrow">SPORTS SCIENCE × ATHLETE DATA</p>
-    <h1>才能を、<br><span>データで発見する。</span></h1>
-    <p class="lead">競技実績だけでは見えない身体能力を可視化。<br>アスリート、スカウト、企業をスポーツ科学でつなぐ。</p>
-    <div class="hero-actions">
-      <a class="btn primary" href="#athletes">選手を探す</a>
-      <a class="btn secondary" href="#concept">サービスを見る</a>
+  <div class="hero-grid"></div>
+  <div class="hero-orb orb-a"></div><div class="hero-orb orb-b"></div>
+  <div class="hero-inner">
+    <div class="eyebrow"><span></span> SPORTS SCIENCE × TALENT PLATFORM</div>
+    <h1>まだ知らない才能に、<br><em>出会おう。</em></h1>
+    <p class="hero-lead">競技実績だけでは見つけられなかった可能性を、<br>フィジカルデータで可視化し、次の機会へつなぐ。</p>
+    <div class="hero-cta">
+      <a class="btn" href="#entry">自分の可能性を知る <b>→</b></a>
+      <a class="btn btn-ghost" href="#athletes">アスリートを探す <b>→</b></a>
     </div>
-    <div class="hero-kpis">
-      <div><strong>5</strong><span>PHYSICAL DATA</span></div>
-      <div><strong>3</strong><span>USER TYPES</span></div>
-      <div><strong>1</strong><span>DATA PLATFORM</span></div>
-    </div>
+    <div class="hero-note">小学生から社会人まで。才能発見・成長・進路・スカウト・キャリアをひとつのIDで。</div>
   </div>
-  <div class="hero-visual">
-    <img src="assets/platform-visual.png" alt="JAPAN ATHLETE CONNECT platform visual">
-    <div class="visual-badge"><span>ARROWZ SCORE</span><strong>92</strong><small>TOP 8%</small></div>
+  <div class="score-float">
+    <span>JDC PHYSICAL SCORE</span><strong>92.4</strong><small>U-15 NATIONAL <b>TOP 2.3%</b></small>
+    <div class="mini-bars">
+      <i style="--v:94%"></i><i style="--v:84%"></i><i style="--v:96%"></i><i style="--v:78%"></i><i style="--v:89%"></i>
+    </div>
+    <div class="labels"><span>SPEED</span><span>POWER</span><span>JUMP</span><span>END.</span><span>VISION</span></div>
+  </div>
+  <div class="scroll">SCROLL <i></i></div>
+</section>
+
+<section class="quick-search" id="athletes">
+  <div class="section-head inline">
+    <div><div class="eyebrow dark"><span></span> ATHLETE DATABASE</div><h2>フィジカルから、<br>才能を探す。</h2></div>
+    <p>所属や実績だけではなく、競技・年代・地域・身体能力から<br>次の可能性を検索する。</p>
+  </div>
+  <div class="search-panel">
+    <label>競技<select id="sport"><option value="">すべて</option><option>サッカー</option><option>野球</option><option>バスケットボール</option><option>陸上</option><option>バレーボール</option></select></label>
+    <label>年代<select id="age"><option value="">すべて</option><option>U-12</option><option>U-15</option><option>U-18</option><option>大学</option><option>社会人</option></select></label>
+    <label>地域<select id="area"><option value="">全国</option><option>関東</option><option>東海</option><option>関西</option><option>九州</option></select></label>
+    <label>フィジカル<select id="physical"><option value="">指定なし</option><option value="speed">SPEED 90+</option><option value="power">POWER 90+</option><option value="jump">JUMP 90+</option><option value="endurance">ENDURANCE 90+</option><option value="vision">VISION 90+</option></select></label>
+    <button class="btn search-btn" id="searchBtn">SEARCH</button>
+  </div>
+  <div class="result-line"><span id="resultCount">6 ATHLETES</span><small>※現在の選手・数値はプロトタイプ用ダミーデータです。</small></div>
+  <div class="athlete-grid" id="athleteGrid"></div>
+</section>
+
+<section class="manifesto">
+  <div class="manifesto-no">01</div>
+  <div>
+    <div class="eyebrow"><span></span> WHY JDC</div>
+    <h2>才能は、<br>実績だけでは測れない。</h2>
+  </div>
+  <div class="manifesto-copy">
+    <p>全国大会に出ていない。有名チームに所属していない。まだ試合に出ていない。それでも、誰より速く、強く、高く跳べる可能性がある。</p>
+    <strong>JDCは「どこに所属しているか」ではなく、<br>「何ができる身体なのか」から才能を見る。</strong>
   </div>
 </section>
 
-<section id="concept" class="section">
-  <div class="section-head split">
-    <div>
-      <p class="eyebrow dark">CONCEPT</p>
-      <h2>実績だけでは、<br>見つからない才能がある。</h2>
-    </div>
-    <p>ARROWZの測定データを蓄積し、選手の価値を身体能力・成長・映像から多面的に可視化。選手とスカウト・企業の新しい接点をつくります。</p>
-  </div>
-  <div class="cards">
-    <article><span>01</span><h3>ATHLETE</h3><p>測定を受け、自分の身体能力と成長を可視化。競技実績以外の強みでもアピール。</p></article>
-    <article><span>02</span><h3>SCOUT</h3><p>競技・年代・地域・身体能力から検索。遠方や無名の選手を効率的に発掘。</p></article>
-    <article><span>03</span><h3>BUSINESS</h3><p>スポンサー候補・採用候補の発見と、統計化されたアスリート市場データを活用。</p></article>
-  </div>
-</section>
-
-<section class="platform-showcase">
-  <div class="section-head light">
-    <p class="eyebrow">PLATFORM IMAGE</p>
-    <h2>選手検索から、身体能力比較まで。</h2>
-    <p>Web上で選手を検索し、プロフィール・身体能力・成長履歴・映像を一元的に確認できるプラットフォームを想定しています。</p>
-  </div>
-  <img src="assets/platform-visual.png" alt="JAPAN ATHLETE CONNECT UI mockup">
-</section>
-
-<section class="physical">
-  <div class="section-head light">
-    <p class="eyebrow">ARROWZ PHYSICAL DATA</p>
-    <h2>身体能力を、共通言語に。</h2>
+<section class="physical" id="combine">
+  <div class="section-head">
+    <div class="eyebrow dark"><span></span> OFFICIAL COMBINE TEST</div>
+    <h2>感覚ではなく、<br>データで見る。</h2>
+    <p>ARROWZの測定をベースに、共通指標でフィジカルを可視化。<br>測定結果は成長とともに蓄積される。</p>
   </div>
   <div class="metrics">
-    <div><i>01</i><b>視機能</b><span>VISION</span></div>
-    <div><i>02</i><b>筋力</b><span>STRENGTH</span></div>
-    <div><i>03</i><b>持久力</b><span>ENDURANCE</span></div>
-    <div><i>04</i><b>瞬発力</b><span>POWER</span></div>
-    <div><i>05</i><b>跳躍力</b><span>JUMP</span></div>
+    <article><b>01</b><div class="metric-icon">↗</div><h3>SPEED</h3><p>瞬発力</p></article>
+    <article><b>02</b><div class="metric-icon">◆</div><h3>POWER</h3><p>筋力</p></article>
+    <article><b>03</b><div class="metric-icon">↑</div><h3>JUMP</h3><p>跳躍力</p></article>
+    <article><b>04</b><div class="metric-icon">∞</div><h3>ENDURANCE</h3><p>持久力</p></article>
+    <article><b>05</b><div class="metric-icon">◉</div><h3>VISION</h3><p>視機能</p></article>
+  </div>
+  <div class="score-explain">
+    <div><small>JDC PHYSICAL SCORE</small><strong>92.4</strong><span>全国・年代別データとの比較</span></div>
+    <p>単一の数値で選手を決めつけるのではなく、5つの能力特性と成長履歴を多面的に表示。<br><b>「現在の能力」と「伸びている能力」の両方を発見につなげる。</b></p>
   </div>
 </section>
 
-<section id="athletes" class="section athlete-section">
-  <div class="section-head split">
-    <div><p class="eyebrow dark">ATHLETE DATABASE</p><h2>データから、選手を探す。</h2></div>
-    <p>※選手名・数値はプロトタイプ用ダミーデータです。</p>
+<section class="growth" id="growth">
+  <div class="growth-copy">
+    <div class="eyebrow"><span></span> ATHLETE TIMELINE</div>
+    <h2>才能の「今」だけでなく、<br><em>成長</em>を見る。</h2>
+    <p>小学生から測定を続けることで、現在値だけでは分からない成長速度や能力変化を可視化。JDCでは、成長曲線そのものをアスリートの価値として扱う。</p>
+    <div class="stage-row">
+      <span><b>DISCOVER</b>小学生<br>強みを知る</span><i>→</i>
+      <span><b>DEVELOP</b>中学生<br>成長する</span><i>→</i>
+      <span><b>CONNECT</b>高校生<br>出会う</span><i>→</i>
+      <span><b>DRAFT</b>大学生〜<br>選ばれる</span>
+    </div>
   </div>
-
-  <div class="filters">
-    <select id="sport"><option value="">すべての競技</option><option>サッカー</option><option>野球</option><option>バスケットボール</option><option>陸上</option></select>
-    <select id="age"><option value="">すべての年代</option><option>U18</option><option>U15</option></select>
-    <select id="region"><option value="">すべての地域</option><option>関東</option><option>関西</option><option>東海</option></select>
-    <select id="score"><option value="0">スコア指定なし</option><option value="80">SCORE 80+</option><option value="90">SCORE 90+</option></select>
-    <button onclick="filterA()">SEARCH</button>
-  </div>
-  <div id="resultCount" class="result-count"></div>
-  <div id="grid" class="athlete-grid"></div>
-</section>
-
-<section id="business" class="section">
-  <div class="section-head">
-    <p class="eyebrow dark">FOR SCOUT / BUSINESS</p>
-    <h2>発掘から、採用・スポンサーまで。</h2>
-  </div>
-  <div class="cards business-cards">
-    <article><div class="icon">⌕</div><h3>SCOUT SEARCH</h3><p>全国の選手を条件検索し、身体能力・成長データ・映像から候補を発見。</p><a href="#athletes">選手検索を体験 →</a></article>
-    <article><div class="icon">◎</div><h3>SPONSOR / RECRUIT</h3><p>企業がアスリートを発見し、スポンサー・採用候補としてアプローチ。</p><button onclick="openContact()">法人利用を相談 →</button></article>
-    <article><div class="icon">▦</div><h3>MARKET DATA</h3><p>競技・年代・地域別の身体能力データを商品企画・研究・マーケティングへ。</p><button onclick="openContact()">データ利用を相談 →</button></article>
+  <div class="growth-chart">
+    <div class="chart-title"><span>PHYSICAL SCORE</span><b>GROWTH <em>+23</em></b></div>
+    <svg viewBox="0 0 600 300" role="img" aria-label="成長スコアグラフ">
+      <g class="grid-lines"><line x1="40" y1="50" x2="570" y2="50"/><line x1="40" y1="110" x2="570" y2="110"/><line x1="40" y1="170" x2="570" y2="170"/><line x1="40" y1="230" x2="570" y2="230"/></g>
+      <polyline class="chart-line" points="55,220 180,190 305,145 430,105 555,62"/>
+      <g class="dots"><circle cx="55" cy="220" r="7"/><circle cx="180" cy="190" r="7"/><circle cx="305" cy="145" r="7"/><circle cx="430" cy="105" r="7"/><circle cx="555" cy="62" r="7"/></g>
+      <g class="chart-labels"><text x="45" y="265">10歳</text><text x="170" y="265">11歳</text><text x="295" y="265">12歳</text><text x="420" y="265">13歳</text><text x="545" y="265">14歳</text></g>
+    </svg>
   </div>
 </section>
 
-<section id="plans" class="section plans">
-  <div class="section-head center">
-    <p class="eyebrow dark">REVENUE MODEL</p>
-    <h2>3つの収益エンジン。</h2>
+<section class="scout" id="scout">
+  <div class="section-head inline">
+    <div><div class="eyebrow dark"><span></span> FOR TEAM / SCHOOL / SCOUT</div><h2>待つスカウトから、<br>探すスカウトへ。</h2></div>
+    <p>条件に合うアスリートを全国から検索。<br>フィジカル・成長・競技歴・映像を横断して比較する。</p>
   </div>
-  <div class="cards">
-    <article><span>ATHLETE / TEAM</span><h3>測定料</h3><p>ARROWZ LAB・提携拠点での測定。継続測定により成長履歴を蓄積。</p></article>
-    <article class="featured"><span>SCOUT</span><h3>閲覧ライセンス</h3><p>大学・高校・プロ・実業団等が検索・比較・閲覧機能を利用。</p></article>
-    <article><span>BUSINESS</span><h3>企業閲覧ライセンス</h3><p>市場データ・スポンサー候補・採用候補を企業が閲覧。</p></article>
+  <div class="scout-ui">
+    <aside>
+      <b>SCOUT DASHBOARD</b>
+      <a class="active">⌕ TALENT SEARCH</a><a>☆ WATCH LIST</a><a>⇄ COMPARE</a><a>✉ SCOUT</a><a>▦ TEAM PROFILE</a>
+    </aside>
+    <div class="dashboard">
+      <div class="dash-top"><div><small>RECOMMENDED FOR YOU</small><h3>条件に合う新着アスリート</h3></div><button class="outline-btn">検索条件を編集</button></div>
+      <div class="recommend-row">
+        <div><span class="avatar">07</span><p><b>K. SATO</b><small>U-15 / SOCCER / KANTO</small></p><strong>94.1<small>SCORE</small></strong></div>
+        <div><span class="avatar">12</span><p><b>R. SUZUKI</b><small>U-18 / BASKETBALL / TOKAI</small></p><strong>91.8<small>SCORE</small></strong></div>
+        <div><span class="avatar">21</span><p><b>H. ITO</b><small>U-12 / TRACK / KANSAI</small></p><strong>90.7<small>SCORE</small></strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ecosystem">
+  <div class="eyebrow"><span></span> JDC ECOSYSTEM</div>
+  <h2>測る。証明する。<br>見つける。つなぐ。</h2>
+  <div class="flow">
+    <div><small>01</small><b>ARROWZ</b><span>身体能力を測る</span></div><i>→</i>
+    <div><small>02</small><b>PHYSICAL DATA</b><span>強みと成長を証明</span></div><i>→</i>
+    <div class="focus"><small>03</small><b>JAPAN DRAFT<br>COMBINE</b><span>才能を発見する</span></div><i>→</i>
+    <div><small>04</small><b>OPPORTUNITY</b><span>学校・チーム・企業へ</span></div>
+  </div>
+</section>
+
+<section class="entry" id="entry">
+  <div>
+    <div class="eyebrow"><span></span> JOIN THE PLATFORM</div>
+    <h2>可能性は、<br>測るところから始まる。</h2>
+  </div>
+  <div class="entry-cards">
+    <button data-toast="選手・保護者向け登録はMVP次段階で接続します"><small>ATHLETE / PARENT</small><b>自分の可能性を知る</b><span>測定・登録について →</span></button>
+    <button data-toast="スカウト審査・法人登録はMVP次段階で接続します"><small>TEAM / SCHOOL / SCOUT</small><b>才能を見つける</b><span>スカウト利用について →</span></button>
+    <button data-toast="企業向け問い合わせフォームはMVP次段階で接続します"><small>COMPANY</small><b>アスリートと出会う</b><span>法人利用について →</span></button>
   </div>
 </section>
 </main>
 
 <footer>
-  <div class="logo footer-logo"><span class="logo-mark">A</span><span>JAPAN ATHLETE<br><b>CONNECT</b></span></div>
-  <p>Prototype for GitHub Pages</p>
+  <div class="brand footer-brand"><span class="brand-mark">JDC</span><span class="brand-copy"><b>JAPAN DRAFT COMBINE</b><small>POWERED BY ARROWZ</small></span></div>
+  <p>小学生から始まる、フィジカルデータを軸にしたスポーツ人材プラットフォーム。</p>
+  <div><a href="#top">TOP</a><a href="#athletes">ATHLETES</a><a href="#combine">COMBINE</a><a href="#scout">FOR SCOUT</a></div>
+  <small>PROTOTYPE / © JAPAN DRAFT COMBINE</small>
 </footer>
 
-<div id="modal" class="modal" onclick="if(event.target===this)closeM()">
-  <div class="dialog">
-    <button class="close" onclick="closeM()">×</button>
-    <div id="detail"></div>
-  </div>
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-bg" data-close></div>
+  <article class="profile-modal">
+    <button class="modal-close" data-close>×</button>
+    <div id="modalContent"></div>
+  </article>
 </div>
-
-<script src="app.js"></script>
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
 </body>
 </html>
